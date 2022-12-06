@@ -33,7 +33,7 @@ class Pony
         }
     }
 
-    public function __set($name="pony",$value="pony")
+    public function __set($name="",$value="")
     {
         if(property_exists("Pony",$name))
         {
