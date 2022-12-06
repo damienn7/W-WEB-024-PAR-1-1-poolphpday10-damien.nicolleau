@@ -21,7 +21,7 @@ class Booba extends Warrior
 
     public function shout()
     {
-        echo "Bah bien Morray !\n";
+        echo "Bah bien Morray !";
     }
 }
 
@@ -34,7 +34,7 @@ class Lafouine extends Warrior
 
     public function shout()
     {
-        echo "Je suis proprietaire !\n";
+        echo "Je suis proprietaire !";
     }
 }
 

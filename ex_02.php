@@ -22,7 +22,7 @@ class Booba extends Warrior implements GoodManners
 
     public function shout()
     {
-        echo "Bah bien Morray !\n";
+        echo "Bah bien Morray !";
     }
 
     public function say_please()
@@ -50,7 +50,7 @@ class Lafouine extends Warrior
 
     public function shout()
     {
-        echo "Je suis proprietaire !\n";
+        echo "Je suis proprietaire !";
     }
 }
 
