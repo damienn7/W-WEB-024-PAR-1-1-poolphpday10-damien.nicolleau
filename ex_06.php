@@ -27,72 +27,46 @@ class Pony
 
     public function __call($name,$method)
     {
-
-        if(is_int(strpos($name, "__get"))||is_int(strpos($name,"__set")))
+        if(!method_exists(strval($name),strval($method)))
         {
-            if(!method_exists("Pony",strval($name)))
-            {
-                if(!property_exists("Pony",str_replace("__get","",strtolower(strval($name)))))
-                {
-                    echo "Il n’y a pas d’attribut :".str_replace("__get","",strval($name)).".\n";
-                }
+                echo "I don’t know what to do...";
+        }
+    }
 
-                if(!property_exists("Pony",str_replace("__set","",strtolower(strval($name))))&&is_int(strpos($name,"__set")))
-                {
-                    echo "ici";
-                    echo "Il n’y a pas d’attribut :".str_replace("__set","",strval($name)).".\n";
-                }
-            }
+    public function __set($name="pony",$value="pony")
+    {
+        if(property_exists("Pony",$name))
+        {
+            echo "Ce n’est pas bien de getter un attribut qui est privé !\n";
+            $this->$name=$value;
         }
         else
         {
-            echo "Il n’y a pas d’attribut :".$name;
+            echo "Il n’y a pas d’attribut : $name\n";
+            $this->$name=$value;
         }
     }
 
-    public function __setName($name)
+    public function __get($name="")
     {
-        echo "Ce n’est pas bien de setter un attribut qui est privé !\n";
-        $this->name=$name;
+        if(property_exists("Pony",$name))
+        {
+            echo "Ce n’est pas bien de getter un attribut qui est privé !\n";
+            return $this->$name;
+        }
+        else
+        {
+            echo "Il n’y a pas d’attribut : $name\n";
+            return $this->$name;
+        }
     }
-
-    public function __setGender($gender)
-    {
-        echo "Ce n’est pas bien de setter un attribut qui est privé !\n";
-        $this->gender=$gender;
-    }
-
-    public function __setColor($color)
-    {
-        echo "Ce n’est pas bien de setter un attribut qui est privé !\n";
-        $this->color=$color;
-    }
-
-    public function __getName()
-    {
-        echo "Ce n’est pas bien de getter un attribut qui est privé !\n";
-        return $this->name=$name;
-    }
-
-    public function __getGender()
-    {
-        echo "Ce n’est pas bien de getter un attribut qui est privé !\n";
-        return $this->gender=$gender;
-    }
-
-    public function __getColor()
-    {
-        echo "Ce n’est pas bien de getter un attribut qui est privé !\n";
-        return $this->color=$color;
-    }
-    
 }
 
 
 
 $pony = new Pony("dado","homme","red");
 echo $pony;
-$pony->get();
+$pony->__get();
 
 
 $pony->__getPony();
