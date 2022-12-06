@@ -71,14 +71,14 @@ trait Singer
     public function sing_a_song()
     {
         echo "Trololololololol\n";
-        echo str_replace("o","a",$sing)."\n";
-        echo str_replace("o","i",$sing)."\n";
+        echo str_replace("o","a","Trololololololol")."\n";
+        echo str_replace("o","i","Trololololololol")."\n";
     }
 }
 
-/*
+
 $boba = new Booba();
 $boba->sing_a_song();
-*/
+
 
 
